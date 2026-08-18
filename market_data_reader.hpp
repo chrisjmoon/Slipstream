@@ -2,6 +2,7 @@
 
 #include "market_types.hpp"
 #include <chrono>
+#include <string_view>
 #include <vector>
 
 struct QuoteData
