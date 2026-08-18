@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstdint>
+#include <string>
 
 enum class Symbol
 {
@@ -19,5 +20,17 @@ enum class Aggressor
 
 // Use abstraction so that the underlying type can be changed if different datasets require
 // different precision or range requirements.
-using Price = std::int64_t;
+
+struct Price
+{
+    std::int64_t m_price;
+
+    /**
+     * Parses a price string of the form "DDDD.CC".
+     *
+     * @throws std::invalid_argument if the input is malformed.
+     */
+    explicit Price(std::string_view price_string);
+};
+
 using Quantity = std::uint64_t;
